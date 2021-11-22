@@ -1,0 +1,62 @@
+[
+        {
+            "title": "Bohemian Rhabsody",
+            "artist": "Queen",
+            "genre": "Pop Rock",
+            "releaseYear": "1975"
+        },
+        {
+            "title": "Don't Stop Me Now",
+            "artist": "Queen",
+            "genre": "Pop Rock",
+            "releaseYear": "1978"
+        },
+        {
+            "title": "Love of My Life",
+            "artist": "Queen",
+            "genre": "Soft Rock",
+            "releaseYear": "1975"
+        },
+        {
+            "title": "Baby I Love Your Way",
+            "artist": "Peter Frampton",
+            "genre": "Soft Rock",
+            "releaseYear": "1994"
+        },
+        {
+            "title": "Smells Like Teen Spirit",
+            "artist": "Nirvana",
+            "genre": "Alternative Rock",
+            "releaseYear": "1991"
+        },
+        {
+            "title": "The Man Who Sold The World",
+            "artist": "Nirvana",
+            "genre": "Alternative Rock",
+            "releaseYear": "1994"
+        },
+        {
+            "title": "Californiacation",
+            "artist": "Red Hot Chili Peppers",
+            "genre": "Hard Rock",
+            "releaseYear": "1999"
+        },
+        {
+            "title": "Scar Tissue",
+            "artist": "Red Hot Chili Peppers",
+            "genre": "Hard Rock",
+            "releaseYear": "1999"
+        },
+        {
+            "title": "Trampled Under Foot",
+            "artist": "Led Zeppelin<",
+            "genre": "Funk Rock",
+            "releaseYear": "1975"
+        },
+        {
+            "title": "The Stroke",
+            "artist": "Billy Squier",
+            "genre": "Funk Rock",
+            "releaseYear": "1981"
+        }
+]

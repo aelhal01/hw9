@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" />
+    <!-- INCLUDING JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="song_list.json"></script>
+
+</head>
+
+<body>
+
+    <h1>Part 2</h1>
+    <div id="my_data"></div>
+    <script>
+        fetch('song_list.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("my_data");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'Title: ' + data[i].title + ' ' + 'Artist: ' + data[i].artist + ' ' + 'Genre: ' + data[i].genre + ' ' + 'Release Year: ' + data[i].releaseYear;
+                mainContainer.appendChild(div);
+            }
+        }
+    </script>
+
+    <section>
+    <h1>Part 3</h1>
+        <!-- construct table-->
+        <table id='table'>
+            <!-- table header -->
+            <tr>
+                <th>Song Title</th>
+                <th>Artist Name</th>
+                <th>Genre</th>
+                <th>Release Year</th>
+            </tr>
+
+            <script>
+                $(document).ready(function () {
+
+                    // fetch data from json file
+                    $.getJSON("song_list.json",
+                            function (data) {
+                        var song = '';
+
+                        // iterate through json objects
+                        $.each(data, function (key, value) {
+
+                            //construct table rows from json object data
+                            song += '<tr>';
+                            song += '<td>' +
+                                value.title + '</td>';
+
+                            song += '<td>' +
+                                value.artist + '</td>';
+
+                            song += '<td>' +
+                                value.genre + '</td>';
+
+                            song += '<td>' +
+                                value.releaseYear + '</td>';
+
+                            song += '</tr>';
+                        });
+                        //insert rows into table
+                        $('#table').append(song);
+                    });
+                });
+            </script>
+            </table>
+    </section>
+
+    <h1>Part 4</h4>
+    <form>
+        <label for="filter">Choose a genre: </label>
+        <select id="filter" name="filter">
+          <option value="pop">Pop</option>
+          <option value="rock">Rock</option>
+          <option value="slowPop">Slow Pop</option>
+          <option value="indiePop">Indie Pop</option>
+          <option value="hipHop">Hip Hop</option>
+          <option value="popRock">Pop Rock</option>
+        </select>
+        <button type='button' id="select_button">Submit</button>
+      </form>
+
+      <div id="filteredData"></div>
+
+      <section>
+        <table id='table_temp'>
+        <tr>
+            <th>Song Title</th>
+            <th>Artist Name</th>
+            <th>Genre</th>
+            <th>Release Year</th>
+        </tr>
+        </table>
+            <!-- construct table -->
+            <table id='table2'>
+                <script>
+                    var selected;
+                    $(document).ready(function () {
+                        $('#select_button').click(function(){
+                        selected = ($('#filter :selected').text());
+                        document.getElementById("table2").innerHTML = "";
+
+                        // fetch data from json file
+                        $.getJSON("song_list.json",
+                                function (data) {
+                            var song = '';
+
+                            // iterate through json objects
+                            $.each(data, function (key, value) {
+
+                                if (value.genre == selected) {
+                                    //construct table rows from json object data
+                                    song += '<tr>';
+                                    song += '<td>' +
+                                        value.title + '</td>';
+
+                                    song += '<td>' +
+                                        value.artist + '</td>';
+
+                                    song += '<td>' +
+                                        value.genre + '</td>';
+
+                                    song += '<td>' +
+                                        value.releaseYear + '</td>';
+
+                                    song += '</tr>';
+                                }
+                            });
+                            //insert rows into table
+                            $('#table2').append(song);
+                        });
+                    });
+                });
+                </script>
+            </table>
+        </section>
+
+</body>
+</html>
